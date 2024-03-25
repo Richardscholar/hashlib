@@ -1,0 +1,31 @@
+import hashlib
+
+
+def calcular_hash_senha(senha):
+  # Criar um objeto de hash usando o algoritmo SHA-256
+  hash_obj = hashlib.sha256()
+
+  # Converter a senha para bytes antes de calcular o hash
+  senha_bytes = senha.encode('utf-8')
+
+  # Atualizar o objeto de hash com a senha
+  hash_obj.update(senha_bytes)
+
+  # Retornar o hash em formato de string
+  hash_string = hash_obj.digest()
+
+  # Retornar o hash em formato hexadecimal
+  hash_hexadecimal = hash_obj.hexdigest()
+
+  return hash_string, hash_hexadecimal
+
+
+# Senha a ser hasheada
+senha = "%S3nh4S3gur4$"
+
+# Calcular o hash da senha
+hash_string, hash_hexadecimal = calcular_hash_senha(senha)
+
+# Exibir o hash em formato de string e em formato hexadecimal
+print("Hash em formato de string:", hash_string)
+print("Hash em formato hexadecimal:", hash_hexadecimal)
